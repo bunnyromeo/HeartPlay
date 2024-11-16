@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const Confetti = dynamic(() => import('react-confetti'), {
   ssr: false
@@ -51,7 +52,10 @@ export default function Home() {
   };
 
   const handleNoMove = () => {
-    document.activeElement instanceof HTMLElement && document.activeElement.blur();
+    const activeElement = document.activeElement;
+    if (activeElement instanceof HTMLElement) {
+      activeElement.blur();
+    }
     
     const randomTop = `${Math.random() * 80 + 10}%`;
     const randomLeft = `${Math.random() * 80 + 10}%`;
@@ -72,9 +76,12 @@ export default function Home() {
       )}
       <div className="text-center p-4 sm:p-8 md:p-12">
         <div className="max-w-md mx-auto flex flex-col items-center">
-          <img
+          <Image
             src={currentContent.gif}
             alt="Cute Question"
+            width={300}
+            height={300}
+            priority
             className="w-[200px] sm:w-[250px] md:w-[300px] h-auto rounded-lg shadow-md"
           />
           <h1 className="text-xl sm:text-2xl md:text-3xl text-pink-500 font-bold mt-4 sm:mt-6">
