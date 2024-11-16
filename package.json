@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/canvas-confetti": "^1.6.4",
-    "canvas-confetti": "^1.9.3",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-confetti": "^6.1.0",
